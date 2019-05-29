@@ -31,7 +31,6 @@
  *   {                                                                                     *
  *     SpeechBubble.BorderColor = Game.GetColorFromRGB(0,128,0);                           *
  *     SpeechBubble.BackgroundColor = Game.GetColorFromRGB(128,255,128);                   *
- *     SpeechBubble.BackgroundTransparency = 33;                                           *
  *     SpeechBubble.PaddingTop = 5;                                                        *
  *     SpeechBubble.PaddingBottom = 5;                                                     *
  *     SpeechBubble.PaddingLeft = 15;                                                      *
@@ -75,7 +74,7 @@
 enum TextOutlineStyle
 {
   /// A circular, rounded outline
-  eTextOutlineRounded = 0, 
+  eTextOutlineRounded = 0,
   /// A square "block" outline
   eTextOutlineSquare
 };
@@ -84,23 +83,9 @@ enum TextOutlineStyle
 managed struct SpeechBubble
 {
   #region Static Properties
-  /// The GUI that will be used to display blocking bubbles if no GUI argument is passed. Default: null (use overlays) 
+  /// The GUI that will be used to display blocking bubbles if no GUI argument is passed. Default: null (use overlays)
   import static attribute GUI* DefaultGui;              // $AUTOCOMPLETESTATICONLY$
-  /// The background color of speech bubbles (an AGS color number). Default: 15 (white) 
-  import static attribute int BackgroundColor;          // $AUTOCOMPLETESTATICONLY$
-  /// The percentage by which speech bubble backgrounds are tinted by the speech color (0-100). Default: 0
-  import static attribute int BackgroundSpeechTint;          // $AUTOCOMPLETESTATICONLY$
-  /// The transparency of the speech bubble backgrounds (0-100). Default: 0
-  import static attribute int BackgroundTransparency;   // $AUTOCOMPLETESTATICONLY$
-  /// The border color of speech bubbles (an AGS color number). Default: 0 (black)
-  import static attribute int BorderColor;              // $AUTOCOMPLETESTATICONLY$
-  /// The percentage by which speech bubble borders are tinted by the speech color (0-100). Default: 0
-  import static attribute int BorderSpeechTint;          // $AUTOCOMPLETESTATICONLY$
-  /// The transparency of the speech bubble borders (0-100). Default: 0
-  import static attribute int BorderTransparency;       // $AUTOCOMPLETESTATICONLY$
-  /// The transparency of speech bubble text (0-100). Default: 0
-  import static attribute int TextTransparency;         // $AUTOCOMPLETESTATICONLY$
-  
+
   /// The color of any outline applied to speech bubble text (an AGS color number). Default: 0 (black)
   import static attribute int TextOutlineColor;         // $AUTOCOMPLETESTATICONLY$
   /// The percentage by which text outlines are tinted by the speech color (0-100). Default: 0
@@ -109,7 +94,7 @@ managed struct SpeechBubble
   import static attribute int TextOutlineWidth;         // $AUTOCOMPLETESTATICONLY$
   /// The style of the outline applied to speech bubble text. Default: eTextOutlineRounded
   import static attribute TextOutlineStyle TextOutlineStyle;         // $AUTOCOMPLETESTATICONLY$
-  
+
   /// How wide a line of text can be before it wraps. Add left+right padding for total speech bubble width. If <= 0, use default AGS text wrapping. Default: 0
   import static attribute int MaxTextWidth;             // $AUTOCOMPLETESTATICONLY$
   /// Pixels between the text and the top of speech bubbles. Default: 10
@@ -122,28 +107,13 @@ managed struct SpeechBubble
   import static attribute int PaddingRight;             // $AUTOCOMPLETESTATICONLY$
   /// Pixels between the top of the character sprite and the bottom of the speech bubble tail (can be negative)
   import static attribute int HeightOverHead;           // $AUTOCOMPLETESTATICONLY$
-  /// How many pixels to round the corners of the speech bubble by. Default: 8
-  import static attribute int CornerRoundingRadius;     // $AUTOCOMPLETESTATICONLY$
-  
-  /// The speech bubble "tail" to use for talk bubbles ("Say" functions), as a String "pixel array". Must be null-terminated!
-  import static attribute String TalkTail[];            // $AUTOCOMPLETESTATICONLY$
-  /// Get the width of the speech bubble tail for talk bubbles
-  import readonly static attribute int TalkTailWidth;   // $AUTOCOMPLETESTATICONLY$
-  /// Get the height of the speech bubble tail for talk bubbles
-  import readonly static attribute int TalkTailHeight;  // $AUTOCOMPLETESTATICONLY$
-  /// The speech bubble "tail" to use for thought bubbles ("Think" function), as a String "pixel array". Must be null-terminated!
-  import static attribute String ThinkTail[];           // $AUTOCOMPLETESTATICONLY$
-  /// Get the width of the speech bubble tail for think bubbles
-  import readonly static attribute int ThinkTailWidth;  // $AUTOCOMPLETESTATICONLY$
-  /// Get the height of the speech bubble tail for think bubbles
-  import readonly static attribute int ThinkTailHeight; // $AUTOCOMPLETESTATICONLY$
-  
+
   /// The text alignment in speech bubbles. Default: eAlignCentre
   import static attribute Alignment TextAlign;          // $AUTOCOMPLETESTATICONLY$
-  /// Set a font where all characters are invisible, to improve integration. Default: -1 (none) 
+  /// Set a font where all characters are invisible, to improve integration. Default: -1 (none)
   import static attribute FontType InvisibleFont;       // $AUTOCOMPLETESTATICONLY$
   #endregion
-  
+
   #region Instance Properties
   /// Get the Character that this speech bubble belongs to
   import readonly attribute Character* OwningCharacter;
@@ -153,8 +123,6 @@ managed struct SpeechBubble
   import readonly attribute bool IsBackgroundSpeech;
   /// Get whether this is a thought bubble
   import readonly attribute bool IsThinking;
-  /// Get whether this speech bubble is displayed on a GUI
-  import readonly attribute bool UsesGUI;
   /// Get whether the character is being (manually) animated
   import readonly attribute bool Animating;
   /// Get the text of this speech bubble
@@ -174,7 +142,7 @@ managed struct SpeechBubble
   /// Get/set the Y screen-coordinate of this speech bubble's top-left corner
   import attribute int Y;
   #endregion
-  
+
   #region Protected member variables
   // The underlying variables for the instance properties
   protected int _id;
@@ -182,7 +150,6 @@ managed struct SpeechBubble
   protected bool _isBackgroundSpeech;
   protected bool _isThinking;
   protected bool _isAnimating;
-  protected bool _usesGui;
   protected int _totalDuration;
   protected int _elapsedDuration;
   protected int _x;
