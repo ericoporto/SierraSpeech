@@ -49,7 +49,7 @@ Finally, the module (usually) calls `Character.Say()` to render speech animation
 
 This module carries the licenses of the module it forks from.
 
-Sierra Speech was developed by [Snarky](https://github.com/messengerbag), who was funded by AGS forum member bx83, who agreed to make the code open-source. Thanks!
+Speech Bubble was developed by [Snarky](https://github.com/messengerbag), who was funded by AGS forum member bx83, who agreed to make the code open-source. Thanks!
 
 This code is offered under the [MIT License](LICENSE)
 
