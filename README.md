@@ -1,7 +1,6 @@
-# SpeechBubble
-SpeechBubble is a script module for [Adventure Game Studio (AGS)](http://www.adventuregamestudio.co.uk/). It requires AGS v3.4.0 or higher.
+# SierraSpeech
 
-This module allows you to display conversation text in comic book-style speech bubbles. The appearance of the speech bubbles can be extensively customized.
+SierraSpeech [Adventure Game Studio (AGS)](http://www.adventuregamestudio.co.uk/) module mimics the Sierra Speech Style available by default in AGS, to solve some limitations. This is a fork of the [SpeechBubble AGS Module](https://www.adventuregamestudio.co.uk/forums/index.php?topic=55542.0) made by [Snarky](https://www.adventuregamestudio.co.uk/forums/index.php?action=profile;u=2581), [also available on github](https://github.com/messengerbag/SpeechBubble), which I aggregated [SSH'](https://www.adventuregamestudio.co.uk/forums/index.php?action=profile;u=668) efforts from [GUI Portrait module](https://www.adventuregamestudio.co.uk/forums/index.php?topic=34996.0), It requires AGS v3.4.3.1 or higher.
 
 THIS MODULE IS UNFINISHED. SOME FEATURES ARE NOT YET IMPLEMENTED, AND OTHERS MAY CHANGE BEFORE THE FINAL RELEASE.
 
@@ -47,10 +46,12 @@ Note that to get text-based lip sync to work, you need to provide an invisible f
 Finally, the module (usually) calls `Character.Say()` to render speech animation and play voice clips. If you are already using some custom Say module (e.g. [TotalLipSync](https://github.com/messengerbag/TotalLipSync)), you may want to call a custom Say() function instead. To do this, simply change the function call in `SB_sayImpl()` at the top of SpeechBubble.asc.
 
 ## License details
-Development of this module was funded by AGS forum member bx83, who agreed to make the code open-source. Thanks!
 
-This code is offered under the MIT License:
-  https://opensource.org/licenses/MIT
+This module carries the licenses of the module it forks from.
+
+Sierra Speech was developed by [Snarky](https://github.com/messengerbag), who was funded by AGS forum member bx83, who agreed to make the code open-source. Thanks!
+
+This code is offered under the [MIT License](LICENSE)
 
 It is also licensed under a Creative Commons Attribution 4.0 International License:
   https://creativecommons.org/licenses/by/4.0/
