@@ -86,6 +86,8 @@ managed struct SierraSpeech
   #region Static Properties
   /// The GUI that will be used to display blocking sierras if no GUI argument is passed. Default: null (use overlays)
   import static attribute GUI* DefaultGui;              // $AUTOCOMPLETESTATICONLY$
+  /// The GUI that will be used to display blocking sierras if no GUI argument is passed. Default: null (use overlays)
+  import static attribute GUI* DefaultPortraitGui;              // $AUTOCOMPLETESTATICONLY$
 
   /// The color of any outline applied to speech sierra text (an AGS color number). Default: 0 (black)
   import static attribute int TextOutlineColor;         // $AUTOCOMPLETESTATICONLY$
@@ -134,6 +136,8 @@ managed struct SierraSpeech
   import readonly attribute Overlay* SierraOverlay;
   /// Get the GUI this speech sierra is rendered on (null if none)
   import readonly attribute GUI* SierraGUI;
+  /// Get the GUI this speech sierra is rendered on (null if none)
+  import readonly attribute GUI* SierraPortaitGUI;
   /// Get the total number of game loops this speech sierra is displayed before it times out (-1 if no timeout)
   import readonly attribute int TotalDuration;
   /// Get how many game loops this speech sierra has been displayed
@@ -160,13 +164,13 @@ managed struct SierraSpeech
 
 #region Character Extender functions
 /// Like Character.Say(), but using a speech sierra.
-import void SaySierra(this Character*, String message, GUI* sierraGui=0);
+import void SierraSay(this Character*, String message, GUI* sierraGui=0, GUI* sierraPortraitGUI=0);
 /// Like SaySierra(), but the sierra will be positioned with the top-left corner at the given coordinates
-import void SayAtSierra(this Character*, int x, int y, String message, GUI* sierraGui=0);
+import void SierraSayAt(this Character*, int x, int y, String message, GUI* sierraGui=0, GUI* sierraPortraitGUI=0);
 /// Non-blocking speech, similar to SayBackground() - if animate is true, will play the speech animation
-import SierraSpeech* SayBackgroundSierra(this Character*, String message, bool animate=true, GUI* sierraGui=0);
+import SierraSpeech* SierraSayBackground(this Character*, String message, bool animate=true, GUI* sierraGui=0, GUI* sierraPortraitGui=0);
 /// Like Character.Think(), but using this module's thought sierra
-import void ThinkSierra(this Character*, String message, GUI* sierraGui=0);
+import void SierraThink(this Character*, String message, GUI* sierraGui=0, GUI* sierraPortraitGui=0);
 
 /// The current height of the character (pixels from the Character.x position to the top of their sprite)
 import int GetHeight(this Character*);
